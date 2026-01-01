@@ -1,0 +1,547 @@
+import React, { useState } from 'react';
+import { Book, Heart, Feather, Globe, Share2, Edit3, ArrowRight, Star, Quote } from 'lucide-react';
+
+const PoetryWebsiteGuide = () => {
+  const [activeSection, setActiveSection] = useState('overview');
+
+  const sections = {
+    overview: {
+      title: 'Website Overview',
+      content: (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-rose-50 to-amber-50 p-6 rounded-lg border-2 border-rose-200">
+            <h3 className="text-2xl font-bold text-rose-900 mb-4 flex items-center gap-2">
+              <Book className="w-6 h-6" />
+              Your Book Website Blueprint
+            </h3>
+            <p className="text-gray-700 mb-4">
+              A professional, poetic website design for "रूह के अक्स - Reflections of the Soul" by Ridhi Jain
+            </p>
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <p className="font-semibold text-rose-800 mb-2">Website URL:</p>
+              <p className="text-lg text-gray-800">aksreflectionsbyridhi.com</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-rose-400">
+              <Heart className="w-8 h-8 text-rose-500 mb-3" />
+              <h4 className="font-bold text-lg mb-2">Brand Identity</h4>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li>• Poetic and emotional</li>
+                <li>• Inspired by Gulzar Sahab</li>
+                <li>• Bilingual (Hindi/English)</li>
+                <li>• Contemporary yet soulful</li>
+              </ul>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-400">
+              <Feather className="w-8 h-8 text-amber-600 mb-3" />
+              <h4 className="font-bold text-lg mb-2">Target Audience</h4>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li>• Poetry lovers</li>
+                <li>• Young readers (18-35)</li>
+                <li>• Hindi/Urdu literature enthusiasts</li>
+                <li>• Emotional & reflective souls</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    pages: {
+      title: 'Essential Pages',
+      content: (
+        <div className="space-y-4">
+          <div className="bg-rose-50 p-6 rounded-lg border-2 border-rose-200">
+            <h3 className="text-xl font-bold text-rose-900 mb-4">Website Structure</h3>
+            
+            {[
+              {
+                page: 'Home/Landing Page',
+                icon: <Book className="w-5 h-5" />,
+                elements: [
+                  'Hero section with book cover image',
+                  'Tagline: "For the dreamers, the wanderers, and the souls who find solace in silence"',
+                  'Brief introduction about the book',
+                  'Call-to-action buttons (Buy Now, Read Sample)',
+                  'Featured poems preview',
+                  'Author photo and brief bio'
+                ]
+              },
+              {
+                page: 'About the Book',
+                icon: <Heart className="w-5 h-5" />,
+                elements: [
+                  'Book description and themes',
+                  'Chapters overview (Shadow of Love, Love and Longings, etc.)',
+                  'Sample poems (2-3 excerpts)',
+                  'Book specifications (pages, language, publisher)',
+                  'Inspiration from Gulzar Sahab'
+                ]
+              },
+              {
+                page: 'About the Author',
+                icon: <Feather className="w-5 h-5" />,
+                elements: [
+                  'Professional author photo',
+                  'Biography (born March 7, 2006, Muzaffarnagar)',
+                  'Educational background (BBA from MSU Saharanpur)',
+                  'Writing journey and inspiration',
+                  'Contact information'
+                ]
+              },
+              {
+                page: 'Buy/Contact',
+                icon: <Share2 className="w-5 h-5" />,
+                elements: [
+                  'Purchase options and links',
+                  'Contact form for inquiries',
+                  'Email: ridhijain608@gmail.com',
+                  'Social media links',
+                  'Bulk order information'
+                ]
+              }
+            ].map((section, idx) => (
+              <div key={idx} className="bg-white p-4 rounded-lg shadow-sm mb-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="text-rose-600">{section.icon}</div>
+                  <h4 className="font-bold text-lg text-gray-800">{section.page}</h4>
+                </div>
+                <ul className="text-sm text-gray-700 space-y-1 ml-7">
+                  {section.elements.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-rose-400 mt-1">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    design: {
+      title: 'Design Guidelines',
+      content: (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-amber-50 to-rose-50 p-6 rounded-lg border-2 border-amber-200">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Visual Design System</h3>
+            
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold mb-3 text-rose-800">Color Palette</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg bg-rose-400 border-2 border-gray-300"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Rose/Pink</p>
+                      <p className="text-xs text-gray-600">Primary - Love & Emotion</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg bg-amber-300 border-2 border-gray-300"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Golden/Amber</p>
+                      <p className="text-xs text-gray-600">Accent - Warmth & Soul</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg bg-gray-800 border-2 border-gray-300"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Deep Charcoal</p>
+                      <p className="text-xs text-gray-600">Text - Elegance</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg bg-stone-50 border-2 border-gray-300"></div>
+                    <div>
+                      <p className="font-semibold text-sm">Cream/Beige</p>
+                      <p className="text-xs text-gray-600">Background - Softness</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold mb-3 text-amber-800">Typography</h4>
+                <div className="space-y-3">
+                  <div>
+                    <p className="font-serif text-2xl mb-1">Playfair Display</p>
+                    <p className="text-xs text-gray-600">Headings - Elegant & Poetic</p>
+                  </div>
+                  <div>
+                    <p className="font-sans text-lg mb-1">Lato / Open Sans</p>
+                    <p className="text-xs text-gray-600">Body Text - Clean & Readable</p>
+                  </div>
+                  <div>
+                    <p className="text-lg mb-1" style={{fontFamily: 'Noto Sans Devanagari, sans-serif'}}>नोटो सैंस देवनागरी</p>
+                    <p className="text-xs text-gray-600">Hindi Text - Traditional</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-bold mb-3 text-gray-800">Visual Elements</h4>
+              <ul className="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <Star className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                  <span>Use peacock feathers as decorative elements</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Star className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                  <span>Incorporate vintage frames/mirrors imagery</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Star className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                  <span>Soft watercolor backgrounds</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Star className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                  <span>Subtle pattern overlays with Hindi text</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Star className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                  <span>Heart imagery (bleeding/artistic style)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Star className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" />
+                  <span>Minimal line art illustrations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    content: {
+      title: 'Website Copy',
+      content: (
+        <div className="space-y-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-rose-400">
+            <Quote className="w-8 h-8 text-rose-400 mb-3" />
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Landing Page Hero Text</h3>
+            
+            <div className="space-y-4">
+              <div className="bg-rose-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-2">Main Headline (English/Hindi):</p>
+                <p className="text-2xl font-serif text-gray-900 mb-2">
+                  रूह के अक्स - Reflections of the Soul
+                </p>
+                <p className="text-lg text-gray-700 italic">
+                  "For the dreamers, the wanderers, and the souls who find solace in silence."
+                </p>
+              </div>
+
+              <div className="bg-amber-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-2">Subheadline:</p>
+                <p className="text-gray-800">
+                  A poetic journey through the soul, designed for the modern reader who seeks clarity, empathy, and a moment of reflection.
+                </p>
+              </div>
+
+              <div className="bg-stone-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-2">About Section (Brief):</p>
+                <p className="text-gray-800">
+                  "रूह के अक्स" is more than just a collection of poems—it's a piece of the soul, shared through emotions, dreams, and reflections. Inspired by the legendary Gulzar Sahab, these verses capture love, longing, spiritual connections, and life's realities.
+                </p>
+              </div>
+
+              <div className="bg-rose-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-2">Featured Poem Excerpt:</p>
+                <div className="font-serif text-gray-900 space-y-2">
+                  <p className="italic">"My soul searches for you, my heart finds peace in your embrace,</p>
+                  <p className="italic">Never seen you, yet in every breath, I feel your presence trace."</p>
+                  <p className="text-sm text-gray-600 mt-2">— From "Reflections of the Soul"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-amber-400">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Call-to-Action Buttons</h3>
+            <div className="space-y-3">
+              <button className="w-full bg-rose-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-rose-600 transition-colors">
+                Buy the Book Now
+              </button>
+              <button className="w-full bg-amber-100 text-amber-900 py-3 px-6 rounded-lg font-semibold border-2 border-amber-400 hover:bg-amber-200 transition-colors">
+                Read Sample Poems
+              </button>
+              <button className="w-full bg-gray-100 text-gray-800 py-3 px-6 rounded-lg font-semibold border-2 border-gray-300 hover:bg-gray-200 transition-colors">
+                Connect with Ridhi
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    canva: {
+      title: 'Canva Setup Guide',
+      content: (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg border-2 border-purple-200">
+            <Edit3 className="w-8 h-8 text-purple-600 mb-3" />
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Creating Your Website in Canva Pro</h3>
+            
+            <div className="space-y-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">1</span>
+                  Start a New Website Project
+                </h4>
+                <ul className="text-sm text-gray-700 space-y-2 ml-8">
+                  <li>• Open Canva Pro and search for "Website" templates</li>
+                  <li>• Choose "Blank website" or browse poetry/book templates</li>
+                  <li>• Recommended: Start with 4-5 pages minimum</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">2</span>
+                  Design Homepage (Landing Page)
+                </h4>
+                <ul className="text-sm text-gray-700 space-y-2 ml-8">
+                  <li>• Upload your book cover image as hero image</li>
+                  <li>• Add headline: "रूह के अक्स - Reflections of the Soul"</li>
+                  <li>• Include tagline and brief description</li>
+                  <li>• Add "Buy Now" and "Read More" buttons</li>
+                  <li>• Insert author photo and mini-bio section</li>
+                  <li>• Use rose/amber color scheme throughout</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">3</span>
+                  Create Additional Pages
+                </h4>
+                <ul className="text-sm text-gray-700 space-y-2 ml-8">
+                  <li>• About the Book page (with chapter breakdown)</li>
+                  <li>• About the Author page (with full bio)</li>
+                  <li>• Sample Poems page (2-3 poem excerpts)</li>
+                  <li>• Contact/Buy page (with form and links)</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">4</span>
+                  Add Design Elements
+                </h4>
+                <ul className="text-sm text-gray-700 space-y-2 ml-8">
+                  <li>• Search Canva for: peacock feathers, vintage frames, watercolor backgrounds</li>
+                  <li>• Use Elements tab for decorative icons and shapes</li>
+                  <li>• Add subtle animations to buttons (hover effects)</li>
+                  <li>• Include Hindi text elements for authenticity</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">5</span>
+                  Set Up Navigation
+                </h4>
+                <ul className="text-sm text-gray-700 space-y-2 ml-8">
+                  <li>• Add navigation menu: Home | About Book | Author | Buy/Contact</li>
+                  <li>• Link pages together using Canva's link feature</li>
+                  <li>• Ensure consistent header across all pages</li>
+                </ul>
+              </div>
+
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <span className="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">6</span>
+                  Configure Website Settings
+                </h4>
+                <ul className="text-sm text-gray-700 space-y-2 ml-8">
+                  <li>• Go to Settings (gear icon)</li>
+                  <li>• Enter your domain: aksreflectionsbyridhi.com</li>
+                  <li>• Add meta description for SEO</li>
+                  <li>• Upload favicon (small book icon)</li>
+                </ul>
+              </div>
+
+              <div className="bg-purple-50 p-4 rounded-lg border-2 border-purple-300">
+                <h4 className="font-bold text-purple-900 mb-3 flex items-center gap-2">
+                  <Globe className="w-5 h-5" />
+                  Publishing Your Website
+                </h4>
+                <ol className="text-sm text-gray-800 space-y-2 ml-4">
+                  <li>1. Click "Publish" button in top right corner</li>
+                  <li>2. Choose "Publish to web"</li>
+                  <li>3. Select your custom domain option</li>
+                  <li>4. Canva will provide instructions to connect your domain</li>
+                  <li>5. Once published, test all links and pages</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    promotion: {
+      title: 'Marketing & Ads',
+      content: (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg border-2 border-blue-200">
+            <Share2 className="w-8 h-8 text-blue-600 mb-3" />
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Google Ads & LinkedIn Strategy</h3>
+            
+            <div className="space-y-4">
+              <div className="bg-white p-5 rounded-lg shadow-md border-l-4 border-blue-400">
+                <h4 className="font-bold text-lg text-blue-900 mb-3">Google Ads Campaign</h4>
+                
+                <div className="space-y-3">
+                  <div className="bg-blue-50 p-3 rounded">
+                    <p className="font-semibold text-sm mb-2">Target Keywords:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Hindi poetry books', 'Shayari collection', 'Indian poetry', 'Gulzar style poetry', 'Contemporary Hindi literature', 'Love poems in Hindi'].map(keyword => (
+                        <span key={keyword} className="bg-white px-3 py-1 rounded-full text-xs border border-blue-200">{keyword}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 p-3 rounded">
+                    <p className="font-semibold text-sm mb-2">Ad Headlines (rotate):</p>
+                    <ul className="text-sm space-y-1">
+                      <li>• "रूह के अक्स - Poetry That Touches the Soul"</li>
+                      <li>• "Modern Hindi Poetry Inspired by Gulzar"</li>
+                      <li>• "For Dreamers & Wanderers - Buy Now"</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-50 p-3 rounded">
+                    <p className="font-semibold text-sm mb-2">Ad Description:</p>
+                    <p className="text-sm italic">
+                      "Discover 'Reflections of the Soul' - a collection of heartfelt poems on love, longing & life. By young poet Ridhi Jain. Order your copy today!"
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-lg shadow-md border-l-4 border-green-400">
+                <h4 className="font-bold text-lg text-green-900 mb-3">LinkedIn Promotion Strategy</h4>
+                
+                <div className="space-y-3">
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-semibold text-sm mb-2">Profile Optimization:</p>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• Update headline: "Poet & Author | रूह के अक्स - Reflections of the Soul"</li>
+                      <li>• Add book cover as featured image</li>
+                      <li>• Link website in profile</li>
+                      <li>• Include "Published Author" in experience</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-semibold text-sm mb-2">Content Posts (2-3x per week):</p>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• Share individual poems with beautiful graphics</li>
+                      <li>• Behind-the-scenes of writing process</li>
+                      <li>• Book excerpts with call-to-action</li>
+                      <li>• Engage with poetry/literature communities</li>
+                      <li>• Use hashtags: #HindiPoetry #IndianLiterature #Poetry #Shayari</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-green-50 p-3 rounded">
+                    <p className="font-semibold text-sm mb-2">LinkedIn Ads:</p>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• Target: Literature enthusiasts, poets, writers, students</li>
+                      <li>• Age: 18-35</li>
+                      <li>• Location: India (focus on urban areas)</li>
+                      <li>• Interests: Poetry, Literature, Arts & Culture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-amber-50 p-5 rounded-lg border-2 border-amber-300">
+                <h4 className="font-bold text-gray-900 mb-3">Additional Marketing Channels</h4>
+                <div className="grid md:grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p className="font-semibold mb-2">Social Media:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Instagram (@aksreflections)</li>
+                      <li>• Facebook Page</li>
+                      <li>• Twitter/X for poetry quotes</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Content Marketing:</p>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Blog posts on website</li>
+                      <li>• Guest posts on poetry sites</li>
+                      <li>• YouTube poetry readings</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-amber-50 to-stone-100 p-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-6 border-t-4 border-rose-400">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="bg-gradient-to-br from-rose-400 to-amber-400 p-3 rounded-lg">
+              <Book className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">रूह के अक्स Website Builder</h1>
+              <p className="text-gray-600">Complete guide for creating your professional poetry website in Canva</p>
+            </div>
+          </div>
+          <div className="bg-rose-50 p-4 rounded-lg border-l-4 border-rose-400">
+            <p className="text-sm text-gray-700">
+              <strong>Book:</strong> Reflections of the Soul by Ridhi Jain • 
+              <strong> Domain:</strong> aksreflectionsbyridhi.com • 
+              <strong> Platform:</strong> Canva Pro
+            </p>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <div className="bg-white rounded-xl shadow-lg p-4 mb-6">
+          <div className="flex flex-wrap gap-2">
+            {Object.entries(sections).map(([key, section]) => (
+              <button
+                key={key}
+                onClick={() => setActiveSection(key)}
+                className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                  activeSection === key
+                    ? 'bg-rose-500 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {section.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          {sections[activeSection].content}
+        </div>
+
+        {/* Footer */}
+        <div className="mt-6 bg-gradient-to-r from-rose-500 to-amber-500 rounded-xl shadow-lg p-6 text-white text-center">
+          <Heart className="w-8 h-8 mx-auto mb-3" />
+          <p className="text-lg font-semibold mb-2">Ready to Launch Your Poetry Website?</p>
+          <p className="text-sm opacity-90">Follow this guide step-by-step in Canva Pro and bring your book to the digital world!</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PoetryWebsiteGuide;
